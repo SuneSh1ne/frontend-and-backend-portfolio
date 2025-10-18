@@ -1,0 +1,911 @@
+/* CSS переменные */
+:root {
+    --color-main: #2c3e50;
+    --color-accent: #3498db;
+    --color-light: #ecf0f1;
+    --color-dark: #34495e;
+    --color-text: #2c3e50;
+    --color-white: #ffffff;
+
+    --shadow: 0 2px 5px rgba(0,0,0,0.1);
+    --radius: 8px;
+
+    --space-sm: 10px;
+    --space-md: 20px;
+    --space-lg: 30px;
+}
+
+/* Базовые стили */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: var(--color-text);
+    background-color: var(--color-light);
+}
+
+/* Блок page */
+.page {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--color-white);
+    min-height: 100vh;
+}
+
+/* Блок header */
+.header {
+    background: var(--color-main);
+    color: var(--color-white);
+    padding: var(--space-lg);
+    text-align: center;
+}
+
+.header__title {
+    font-size: 2rem;
+}
+
+/* Блок nav */
+.nav {
+    background: var(--color-dark);
+}
+
+.nav__list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+.nav__item {
+    margin: 0;
+}
+
+.nav__link {
+    display: block;
+    padding: var(--space-md);
+    color: var(--color-white);
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.nav__link:hover {
+    background: var(--color-accent);
+}
+
+/* Модификатор --active */
+.nav__item--active .nav__link {
+    background: var(--color-accent);
+    font-weight: bold;
+}
+
+/* Блок main */
+.main {
+    padding: var(--space-lg);
+}
+
+/* Блок projects */
+.projects__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.projects__title {
+    color: var(--color-main);
+    margin-bottom: var(--space-md);
+    font-size: 1.5rem;
+}
+
+.projects__filters {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+}
+
+.projects__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-md);
+    margin-bottom: 2rem;
+}
+
+/* Блок project-card */
+.project-card {
+    background: var(--color-white);
+    padding: var(--space-lg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    border-left: 4px solid var(--color-accent);
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card__image {
+    height: 180px;
+    overflow: hidden;
+}
+
+.project-card__image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s;
+}
+
+.project-card__content {
+    padding: 1.2rem;
+}
+
+.project-card__title {
+    font-size: 1.2rem;
+    color: var(--color-main);
+    margin-bottom: var(--space-sm);
+}
+
+.project-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+/* Блок filters */
+
+.filter-btn {
+    padding: 0.5rem 1rem;
+    background-color: var(--color-light);
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.filter-btn:hover {
+    background-color:#d5dbdb;
+}
+
+.filter-btn--active {
+    background-color: var(--color-accent);
+    color: white;
+}
+
+/* Блок tags */
+
+.tag {
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.tag--html {
+    background-color: #e34c26;
+    color: var(--color-white);
+}
+
+.tag--css {
+    background-color: #264de4;
+    color: var(--color-white);
+}
+
+.tag--js {
+    background-color: #f0db4f;
+    color: var(--color-text);
+}
+
+.tag--react {
+    background-color: #44cdf3;
+    color: var(--color-text);
+}
+
+.tag--bootstrap {
+    background-color: #6a37b8;
+    color: var(--color-white);
+}
+
+/* Модальное окно */
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.modal__content {
+    position: relative;
+    background-color: var(--color-white);
+    margin: 2rem auto;
+    width: 90%;
+    max-width: 800px;
+    border-radius: var(--radius);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    animation: modalFadeIn 0.3s;
+}
+
+@keyframes modalFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal__close {
+    position: absolute;
+    top: 0.5rem;
+    right: 1.5rem;
+    font-size: 1.8rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #7f8c8d;
+    z-index: 10;
+}
+
+.modal__close:hover {
+    color: #e74c3c;
+}
+
+.modal__body {
+    padding: 2rem;
+}
+
+/* Стили для содержимого модального окна */
+.modal-project__title {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    color: var(--color-text);
+}
+
+.modal-project__description {
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+}
+
+.modal-project__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-project__screenshots {
+    margin-bottom: 1.5rem;
+}
+
+.modal-project__screenshots h3 {
+    margin-bottom: 1rem;
+    color: var(--color-text);
+}
+
+.screenshots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.screenshot-item {
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.screenshot-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.modal-project__links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.modal-project__link {
+    display: inline-block;
+    padding: 0.7rem 1.5rem;
+    background-color: var(--color-accent);
+    color: var(--color-white);
+    text-decoration: none;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+}
+
+.modal-project__link:hover {
+    background-color: #2980b9;
+}
+
+.modal-project__link--secondary {
+    background-color: #95a5a6;
+}
+
+.modal-project__link--secondary:hover {
+    background-color: #7f8c8d;
+}
+
+/* Блок footer */
+.footer {
+    background: var(--color-main);
+    color: var(--color-white);
+    text-align: center;
+    padding: var(--space-md);
+    margin-top: var(--space-lg);
+}
+
+/* Блок contacts */
+.contacts {
+    background: var(--color-white);
+    padding: var(--space-lg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.contacts__title {
+    color: var(--color-main);
+    margin-bottom: var(--space-md);
+    font-size: 1.5rem;
+}
+
+.contacts__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-md);
+}
+
+/* Стили для страницы дневника */
+.diary__title {
+    color: var(--color-main);
+    margin-bottom: var(--space-lg);
+    font-size: 1.8rem;
+    text-align: center;
+}
+
+/* Секция прогресса */
+.progress-section {
+    background: var(--color-white);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.progress-section__title {
+    color: var(--color-main);
+    margin-bottom: var(--space-md);
+    font-size: 1.3rem;
+}
+
+/* Таймлайн прогресса */
+.progress-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.progress-item {
+    display: flex;
+    align-items: center;
+    padding: var(--space-md);
+    border-radius: var(--radius);
+    background: var(--color-light);
+    transition: transform 0.3s;
+}
+
+.progress-item:hover {
+    transform: translateX(5px);
+}
+
+.progress-item__date {
+    font-weight: bold;
+    color: var(--color-accent);
+    min-width: 80px;
+}
+
+.progress-item__task {
+    flex: 1;
+    color: var(--color-text);
+}
+
+.progress-item__status {
+    font-weight: bold;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+}
+
+.progress-item--completed .progress-item__status {
+    background: #27ae60;
+    color: white;
+}
+
+.progress-item--in-progress .progress-item__status {
+    background: #f39c12;
+    color: white;
+}
+
+.progress-item--planned .progress-item__status {
+    background: #95a5a6;
+    color: white;
+}
+
+/* Секция курсов */
+.courses-section {
+    background: var(--color-white);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-lg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.courses-section__title {
+    color: var(--color-main);
+    margin-bottom: var(--space-md);
+    font-size: 1.3rem;
+}
+
+.courses-list {
+    display: grid;
+    gap: var(--space-md);
+}
+
+.course-card {
+    background: var(--color-light);
+    padding: var(--space-md);
+    border-radius: var(--radius);
+    border-left: 4px solid var(--color-accent);
+}
+
+.course-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--space-sm);
+}
+
+.course-card__title {
+    color: var(--color-main);
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+.course-card__progress {
+    color: var(--color-accent);
+    font-weight: bold;
+}
+
+/* Прогресс-бар */
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: #e0e0e0;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-bar__fill {
+    height: 100%;
+    background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    border-radius: 4px;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Кнопки действий */
+.diary-actions {
+    text-align: center;
+    margin-top: var(--space-lg);
+}
+
+/* Стили для формы обратной связи */
+.feedback-form {
+    background: var(--color-white);
+    padding: var(--space-lg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.feedback-form__title {
+    color: var(--color-main);
+    margin-bottom: var(--space-lg);
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: var(--space-md);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--space-sm);
+    font-weight: 600;
+    color: var(--color-main);
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: var(--space-sm);
+    border: 2px solid var(--color-light);
+    border-radius: var(--radius);
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+.form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.form-actions {
+    text-align: center;
+    margin-top: var(--space-lg);
+}
+
+.btn {
+    padding: var(--space-sm) var(--space-md);
+    border: none;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: var(--color-accent);
+    color: var(--color-white);
+    width: 200px;
+}
+
+.btn-primary:hover {
+    background: var(--color-dark);
+    transform: translateY(-2px);
+}
+
+.required {
+    color: var(--color-danger);
+}
+
+/* Стили для дополнительной контактной информации */
+.contact-info {
+    text-align: left;
+    margin-top: var(--space-lg);
+    font-family: 'Courier New', monospace;
+    white-space: normal;
+    overflow-x: visible;
+    max-width: 1000px;
+    margin: var(--space-lg) auto var(--space-lg) 0;
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--color-text);
+    line-height: 1.8;
+    margin-left: 70px;
+}
+
+/* Стили для модального окна дневника */
+.modal {
+    border: none;
+    border-radius: var(--radius);
+    padding: 0;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    animation: slideIn 0.3s ease;
+    max-width: 500px;
+    width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+.modal-header {
+    background: var(--color-main);
+    color: var(--color-white);
+    padding: var(--space-md);
+    border-radius: var(--radius) var(--radius) 0 0;
+    margin: 0;
+}
+
+.modal-header__title {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.modal-content {
+    padding: var(--space-lg);
+}
+
+.form-group__label {
+    display: block;
+    margin-bottom: var(--space-sm);
+    font-weight: 600;
+}
+
+.form-group__input,
+.form-group__textarea,
+.form-group__select {
+    width: 100%;
+    padding: var(--space-sm);
+    border: 2px solid var(--color-light);
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group__input:focus,
+.form-group__textarea:focus,
+.form-group__select:focus {
+    outline: none;
+    border-color: var(--color-accent);
+}
+
+.form-group__textarea {
+    min-height: 100px;
+    resize: vertical;
+}
+
+.modal-actions {
+    display: flex;
+    gap: var(--space-sm);
+    justify-content: flex-end;
+    margin-top: var(--space-lg);
+}
+
+.btn--primary {
+    background: var(--color-accent);
+    color: var(--color-white);
+}
+
+.btn--primary:hover {
+    transform: translateY(-2px);
+}
+
+.btn--secondary {
+    background: var(--color-light);
+    color: var(--color-main);
+    border: 2px solid var(--color-light);
+}
+
+.btn--secondary:hover {
+    background: #e9ecef;
+}
+/* Анимации */
+@keyframes slideIn {
+    from { opacity: 0; transform: translateY(-50px) scale(0.9); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .nav__list {
+        flex-direction: column;
+    }
+
+    .projects__header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .projects__filters {
+        width: 100%;
+    }
+
+    .modal__content {
+        width: 95%;
+        margin: 1rem auto;
+    }
+
+    .modal__body {
+        padding: 1.5rem;
+    }
+
+    .screenshots-grid {
+        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+
+    .progress-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
+    }
+
+    .progress-item__date {
+        min-width: auto;
+    }
+
+    .course-card__header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
+    }
+
+    .feedback-form {
+        margin: 0 var(--space-md);
+        padding: var(--space-md);
+    }
+
+    .btn-primary {
+        width: 100%;
+    }
+
+    .contact-info {
+        font-size: 0.9rem;
+        margin: var(--space-lg) var(--space-md);
+        white-space: normal;
+        text-align: left;
+    }
+
+    .main {
+        padding: var(--space-md);
+    }
+}
+
+@media (max-width: 480px) {
+    .projects__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-project__links {
+        flex-direction: column;
+    }
+
+    .modal-project__link {
+        text-align: center;
+    }
+}
+/* ДОПОЛНИТЕЛЬНЫЕ СТИЛИ ДЛЯ МОДАЛЬНОГО ОКНА ДНЕВНИКА */
+#diaryModal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: none;
+    border-radius: var(--radius);
+    padding: 0;
+    max-width: 500px;
+    width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 1001;
+}
+
+#diaryModal::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.modal-header {
+    background: var(--color-main);
+    color: var(--color-white);
+    padding: var(--space-md);
+    border-radius: var(--radius) var(--radius) 0 0;
+}
+
+.modal-header__title {
+    margin: 0;
+    font-size: 1.3rem;
+}
+
+.modal-content {
+    padding: var(--space-lg);
+}
+
+.modal-actions {
+    display: flex;
+    gap: var(--space-sm);
+    justify-content: flex-end;
+    margin-top: var(--space-lg);
+}
+
+.btn--primary {
+    background: var(--color-accent);
+    color: var(--color-white);
+    border: none;
+    padding: 10px 20px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn--primary:hover {
+    background: var(--color-dark);
+    transform: translateY(-2px);
+}
+
+.btn--secondary {
+    background: var(--color-light);
+    color: var(--color-main);
+    border: 2px solid var(--color-light);
+    padding: 10px 20px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.btn--secondary:hover {
+    background: #e9ecef;
+}
+
+.diary-actions {
+    text-align: center;
+    margin-top: var(--space-lg);
+    padding: var(--space-md);
+}
+
+#addEntryBtn {
+    background: var(--color-accent);
+    color: var(--color-white);
+    border: none;
+    padding: 12px 24px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+#addEntryBtn:hover {
+    background: var(--color-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+#project-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: white;
+    border: none;
+    border-radius: var(--radius);
+    padding: 0;
+    max-width: 800px;
+    width: 90vw;
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 1001;
+}
+
+#project-modal::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+}
+
+#project-modal .modal-header {
+    background: var(--color-main);
+    color: var(--color-white);
+    padding: var(--space-md);
+    border-radius: var(--radius) var(--radius) 0 0;
+    display: flex;
+    justify-content: flex-end;
+}
+
+#project-modal .modal-content {
+    padding: var(--space-lg);
+}
