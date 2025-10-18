@@ -2,4 +2,4 @@
 Алхимов Арсений ЭФБО-16-24
 
 ## Ссылка
-- [Публичная страница на GitHub Pages](https://sunesh1ne.github.io/frontend-and-backend-control/)
+- [Публичная страница на GitHub Pages](https://sunesh1ne.github.io/frontend-and-backend-portfolio/)
