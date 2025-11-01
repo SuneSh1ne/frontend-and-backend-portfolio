@@ -3,104 +3,123 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Проекты - Портфолио</title>
+    <title>Проекты - StudentDev Portfolio</title>
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
     <div class="page">
-        
+        <!-- Header -->
         <header class="header">
-            <h1 class="header__title">Моё портфолио</h1>
+            <div class="container">
+                <div class="header__content">
+                    <h1 class="header__title">Алхимов Арсений</h1>
+                    <p class="header__subtitle">Студент-разработчик</p>
+                </div>
+            </div>
         </header>
 
+        <!-- Navigation -->
         <nav class="nav">
-            <ul class="nav__list">
-                <li class="nav__item">
-                    <a class="nav__link" href="../index.html">Главная</a>
-                </li>
-                <li class="nav__item">
-                    <a class="nav__link" href="projects.html">Проекты</a>
-                </li>
-                <li class="nav__item nav__item--active">
-                    <a class="nav__link" href="dairy.html">Дневник</a>
-                </li>
-                <li class="nav__item">
-                    <a class="nav__link" href="contacts.html">Контакты</a>
-                </li>
-            </ul>
+            <div class="container">
+                <ul class="nav__list">
+                    <li class="nav__item">
+                        <a href="../index.html" class="nav__link">Главная</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="projects.html" class="nav__link">Проекты</a>
+                    </li>
+                    <li class="nav__item nav__item--active">
+                        <a href="dairy.html" class="nav__link">Дневник</a>
+                    </li>
+                    <li class="nav__item">
+                        <a href="contacts.html" class="nav__link">Контакты</a>
+                    </li>
+                </ul>
+            </div>
         </nav>
 
+        <!-- Main Content -->
         <main class="main">
-            <h1 class="diary__title">Мой учебный прогресс</h1>
+            <div class="container">
+                <h1 class="section-title">Мой учебный прогресс</h1>
+                <section class="timeline">
+                    <h2 class="timeline__title">Последние активности</h2>
+                    <div class="timeline__content">
+                        <div class="timeline__item">
+                            <span class="timeline__date">15 дек</span>
+                            <span class="timeline__description">Верстка макета сайта</span>
+                            <span class="timeline__status timeline__status--completed">✓</span>
+                        </div>
+                        <div class="timeline__item">
+                            <span class="timeline__date">10 дек</span>
+                            <span class="timeline__description">JavaScript основы</span>
+                            <span class="timeline__status timeline__status--completed">✓</span>
+                        </div>
+                        <div class="timeline__item">
+                            <span class="timeline__date">05 дек</span>
+                            <span class="timeline__description">Работа с формами</span>
+                            <span class="timeline__status timeline__status--in-progress">⏳</span>
+                        </div>
+                        <div class="timeline__item">
+                            <span class="timeline__date">01 дек</span>
+                            <span class="timeline__description">Адаптивный дизайн</span>
+                            <span class="timeline__status timeline__status--in-progress">⏳</span>
+                        </div>
+                    </div>
+                </section>
 
-            <section class="progress-section">
-                <h2 class="progress-section__title">Последние активности</h2>
-                <div class="progress-timeline">
-                    <div class="progress-item progress-item--completed">
-                        <span class="progress-item__date">15 дек</span>
-                        <span class="progress-item__task">Верстка макета сайта</span>
-                        <span class="progress-item__status">✓</span>
+                <section class="courses">
+                    <h2 class="courses__title">Текущие курсы</h2>
+                    <div class="courses__grid">
+                        <div class="course">
+                            <div class="course__header">
+                                <h3 class="course__name">Веб-разработка</h3>
+                                <span class="course__percent">90%</span>
+                            </div>
+                            <div class="course__progress">
+                                <div class="course__progress-bar" style="width: 90%"></div>
+                            </div>
+                        </div>
+
+                        <div class="course">
+                            <div class="course__header">
+                                <h3 class="course__name">JavaScript</h3>
+                                <span class="course__percent">70%</span>
+                            </div>
+                            <div class="course__progress">
+                                <div class="course__progress-bar" style="width: 70%"></div>
+                            </div>
+                        </div>
+
+                        <div class="course">
+                            <div class="course__header">
+                                <h3 class="course__name">React</h3>
+                                <span class="course__percent">50%</span>
+                            </div>
+                            <div class="course__progress">
+                                <div class="course__progress-bar" style="width: 50%"></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="progress-item progress-item--completed">
-                        <span class="progress-item__date">10 дек</span>
-                        <span class="progress-item__task">JavaScript основы</span>
-                        <span class="progress-item__status">✓</span>
-                    </div>
-                    <div class="progress-item progress-item--in-progress">
-                        <span class="progress-item__date">05 дек</span>
-                        <span class="progress-item__task">Работа с формами</span>
-                        <span class="progress-item__status">⏳</span>
-                    </div>
-                    <div class="progress-item progress-item--in-progress">
-                        <span class="progress-item__date">01 дек</span>
-                        <span class="progress-item__task">Адаптивный дизайн</span>
-                        <span class="progress-item__status">⏳</span>
-                    </div>
+                </section>
+
+                <div class="diary-actions">
+                    <button class="button button--primary" id="addEntryBtn">Добавить запись</button>
                 </div>
-            </section>
-
-            <section class="courses-section">
-                <h2 class="courses-section__title">Текущие курсы</h2>
-                <div class="courses-list">
-                    <div class="course-card">
-                        <div class="course-card__header">
-                            <h3 class="course-card__title">Веб-разработка</h3>
-                            <span class="course-card__progress">90%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-bar__fill" style="width: 90%"></div>
-                        </div>
-                    </div>
-
-                    <div class="course-card">
-                        <div class="course-card__header">
-                            <h3 class="course-card__title">JavaScript</h3>
-                            <span class="course-card__progress">70%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-bar__fill" style="width: 70%"></div>
-                        </div>
-                    </div>
-
-                    <div class="course-card">
-                        <div class="course-card__header">
-                            <h3 class="course-card__title">React</h3>
-                            <span class="course-card__progress">50%</span>
-                        </div>
-                        <div class="progress-bar">
-                            <div class="progress-bar__fill" style="width: 50%"></div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <div class="diary-actions">
-                <button class="btn btn--primary" id="addEntryBtn">Добавить запись</button>
             </div>
         </main>
 
+        <!-- Footer -->
         <footer class="footer">
-            <p class="footer__text">© 2025 Контакты</p>
+            <div class="container">
+                <div class="footer__content">
+                    <p class="footer__copyright">&copy; 2025 StudentDev Portfolio</p>
+                    <div class="footer__links">
+                        <a href="mailto:student@edu.ru" class="footer__link">student@edu.ru</a>
+                        <a href="https://github.com" class="footer__link">GitHub</a>
+                    </div>
+                </div>
+            </div>
         </footer>
     </div>
 

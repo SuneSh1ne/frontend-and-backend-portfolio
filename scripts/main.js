@@ -345,7 +345,7 @@ function initProjects() {
     console.log('Инициализация проектов...');
 
     // Фильтрация проектов
-    const filterButtons = document.querySelectorAll('.filter-btn');
+    const filterButtons = document.querySelectorAll('.filter');
     const projectCards = document.querySelectorAll('.project-card');
 
     console.log('Кнопки фильтров:', filterButtons.length);
@@ -355,8 +355,8 @@ function initProjects() {
         button.addEventListener('click', function () {
             console.log('Клик по фильтру:', this.getAttribute('data-filter'));
 
-            filterButtons.forEach(btn => btn.classList.remove('filter-btn--active'));
-            this.classList.add('filter-btn--active');
+            filterButtons.forEach(btn => btn.classList.remove('filter--active'));
+            this.classList.add('filter--active');
 
             const filter = this.getAttribute('data-filter');
 
