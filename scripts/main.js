@@ -254,13 +254,13 @@ function updateCourseProgress(courseName, progress) {
     } else {
         // Создаем новую карточку
         const newCourseHTML = `
-            <div class="course-card">
-                <div class="course-card__header">
-                    <h3 class="course-card__title">${courseName}</h3>
-                    <span class="course-card__progress">${progress}%</span>
+            <div class="course">
+                <div class="course__header">
+                    <h3 class="course__name">${courseName}</h3>
+                    <span class="course__progress">${progress}%</span>
                 </div>
-                <div class="progress-bar">
-                    <div class="progress-bar__fill" style="width: ${progress}%"></div>
+                <div class="course__progress">
+                    <div class="course__progress-bar" style="width: ${progress}%"></div>
                 </div>
             </div>
         `;
@@ -327,10 +327,10 @@ function openProjectModal(title, category, tags) {
             </div>
             
             <div class="modal-project__links">
-                <a href="${liveLink}" target="_blank" class="modal-project__link">
+                <a href="${liveLink}" target="_blank" class="button button--primary">
                     <span>Живая версия</span>
                 </a>
-                <a href="${codeLink}" target="_blank" class="modal-project__link modal-project__link--secondary">
+                <a href="${codeLink}" target="_blank" class="button button--primary">
                     <span>Исходный код</span>
                 </a>
             </div>

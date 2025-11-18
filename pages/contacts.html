@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Проекты - Портфолио</title>
+    <title>Контакты - StudentDev Portfolio</title>
     <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
@@ -42,9 +42,9 @@
         <main class="main">
             <div class="container">
                 <section class="contact-form">
-                    <h2>Форма обратной связи</h2>
+                    <h2 class="feedback-form__title">Форма обратной связи</h2>
 
-                    <form id="feedbackForm" class="form">
+                    <form id="feedbackForm">
                         <div class="form__group">
                             <label class="form__label" for="name">Имя</label>
                             <input class="form__input" type="text" id="name" name="name" required placeholder="Введите ваше имя">
@@ -85,17 +85,27 @@
                     </form>
                 </section>
 
-                <div class="contacts__content">
-                    Контакты:<br>
-                    📧 student@edu.ru<br>
-                    📱 GitHub: sunesh1ne<br>
-                    📍 Москва, Россия
+                <div class="contact-info">
+                    <h2 class="contact-info__title">Контакты:</h2>
+                    <div class="contact-info__items">
+                        <p class="contact-item">📧 student@edu.ru</p>
+                        <p class="contact-item">📱 GitHub: sunesh1ne</p>
+                        <p class="contact-item">📍 Москва, Россия</p>
+                    </div>
                 </div>
             </div>
         </main>
 
         <footer class="footer">
-            <p class="footer__text">© 2025 Контакты</p>
+            <div class="container">
+                <div class="footer__content">
+                    <p class="footer__copyright">&copy; 2025 StudentDev Portfolio</p>
+                    <div class="footer__links">
+                        <a href="mailto:student@edu.ru" class="footer__link">student@edu.ru</a>
+                        <a href="https://github.com" class="footer__link">GitHub</a>
+                    </div>
+                </div>
+            </div>
         </footer>
     </div>
 </body>
