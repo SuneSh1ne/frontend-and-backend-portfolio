@@ -9,7 +9,7 @@
 <body>
     <div class="page">
         <!-- Header -->
-        <header class="header">
+        <header class="header" role="banner">
             <div class="container">
                 <div class="header__content">
                     <h1 class="header__title">Алхимов Арсений</h1>
@@ -19,20 +19,20 @@
         </header>
 
         <!-- Navigation -->
-        <nav class="nav">
+        <nav class="nav" aria-label="Основная навигация">
             <div class="container">
-                <ul class="nav__list">
-                    <li class="nav__item">
-                        <a href="../index.html" class="nav__link">Главная</a>
+                <ul class="nav__list" role="menubar">
+                    <li class="nav__item" role="none">
+                        <a href="../index.html" class="nav__link" role="menuitem">Главная</a>
                     </li>
-                    <li class="nav__item">
-                        <a href="projects.html" class="nav__link">Проекты</a>
+                    <li class="nav__item" role="none">
+                        <a href="projects.html" class="nav__link" role="menuitem">Проекты</a>
                     </li>
-                    <li class="nav__item">
-                        <a href="dairy.html" class="nav__link">Дневник</a>
+                    <li class="nav__item" role="none">
+                        <a href="dairy.html" class="nav__link" role="menuitem">Дневник</a>
                     </li>
-                    <li class="nav__item nav__item--active">
-                        <a href="contacts.html" class="nav__link">Контакты</a>
+                    <li class="nav__item nav__item--active" role="none">
+                        <a href="contacts.html" class="nav__link" role="menuitem" aria-current="page">Контакты</a>
                     </li>
                 </ul>
             </div>
@@ -41,58 +41,136 @@
         <!-- Main Content -->
         <main class="main">
             <div class="container">
-                <section class="contact-form">
+                <section class="contact-form" aria-labelledby="contact-form-title">
                     <h2 class="feedback-form__title">Форма обратной связи</h2>
 
-                    <form id="feedbackForm">
-                        <div class="form__group">
-                            <label class="form__label" for="name">Имя</label>
-                            <input class="form__input" type="text" id="name" name="name" required placeholder="Введите ваше имя">
-                        </div>
+                    <form id="feedbackForm" aria-labelledby="contact-form-title">
+                        <fieldset class="form-fieldset">
+                            <legend class="form-legend">Личная информация</legend>
 
-                        <div class="form__group">
-                            <label class="form__label" for="phone">Телефон</label>
-                            <input class="form__input" type="tel" id="phone" name="phone" required placeholder="+7 (XXX) XXX-XX-XX">
-                        </div>
+                            <div class="form__group">
+                                <label for="name" class="form__label">
+                                    Имя <span class="required-indicator" aria-hidden="true">*</span>
+                                    <span class="sr-only">обязательное поле</span>
+                                </label>
+                                <input
+                                    type="text"
+                                    id="name"
+                                    name="name"
+                                    class="form__input"
+                                    required
+                                    aria-required="true"
+                                    aria-describedby="name-hint"
+                                    placeholder="Введите ваше имя"
+                                >
+                                <div id="name-hint" class="form-hint">Например: Иван Иванов</div>
+                                <div id="name-error" class="form-error" role="alert" aria-live="polite"></div>
+                            </div>
 
-                        <div class="form__group">
-                            <label class="form__label" for="email">Электронная почта</label>
-                            <input class="form__input" type="email" id="email" name="email" required placeholder="example@mail.ru">
-                        </div>
+                            <div class="form__group">
+                                <label for="phone" class="form__label">
+                                    Телефон <span class="required-indicator" aria-hidden="true">*</span>
+                                    <span class="sr-only">обязательное поле</span>
+                                </label>
+                                <input
+                                    type="tel"
+                                    id="phone"
+                                    name="phone"
+                                    class="form__input"
+                                    required
+                                    aria-required="true"
+                                    aria-describedby="phone-hint"
+                                    placeholder="+7 (XXX) XXX-XX-XX"
+                                    pattern="^\+7\s?[\(]?\d{3}[\)]?\s?\d{3}[\-]?\d{2}[\-]?\d{2}$"
+                                >
+                                <div id="phone-hint" class="form-hint">Формат: +7 (XXX) XXX-XX-XX</div>
+                                <div id="phone-error" class="form-error" role="alert" aria-live="polite"></div>
+                            </div>
 
-                        <div class="form__group">
-                            <label class="form__label" for="category">Категория обращения</label>
-                            <select class="form__input" id="category" name="category" required>
-                                <option value="">Выберите категорию</option>
-                                <option value="technical">Техническая поддержка</option>
-                                <option value="commercial">Коммерческое предложение</option>
-                                <option value="cooperation">Сотрудничество</option>
-                                <option value="complaint">Жалоба</option>
-                                <option value="suggestion">Предложение</option>
-                                <option value="other">Другое</option>
-                            </select>
-                        </div>
+                            <div class="form__group">
+                                <label for="email" class="form__label">
+                                    Электронная почта <span class="required-indicator" aria-hidden="true">*</span>
+                                    <span class="sr-only">обязательное поле</span>
+                                </label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    class="form__input"
+                                    required
+                                    aria-required="true"
+                                    aria-describedby="email-hint"
+                                    placeholder="example@mail.ru"
+                                >
+                                <div id="email-hint" class="form-hint">Нужен для обратной связи</div>
+                                <div id="email-error" class="form-error" role="alert" aria-live="polite"></div>
+                            </div>
+                        </fieldset>
 
-                        <div class="form__group">
-                            <label class="form__label" for="message">Текст обращения</label>
-                            <textarea class="form__textarea" id="message" name="message" required
-                                    placeholder="Опишите вашу проблему или вопрос..."></textarea>
-                        </div>
+                        <fieldset class="form-fieldset">
+                            <legend class="form-legend">Детали обращения</legend>
 
-                        <div class="form__actions">
-                            <button type="submit" class="button button--primary form__button">Отправить</button>
-                        </div>
+                            <div class="form__group">
+                                <label for="category" class="form__label">
+                                    Категория обращения <span class="required-indicator" aria-hidden="true">*</span>
+                                    <span class="sr-only">обязательное поле</span>
+                                </label>
+                                <select
+                                    id="category"
+                                    name="category"
+                                    class="form__input"
+                                    required
+                                    aria-required="true"
+                                    aria-describedby="category-hint"
+                                >
+                                    <option value="">Выберите категорию</option>
+                                    <option value="technical">Техническая поддержка</option>
+                                    <option value="commercial">Коммерческое предложение</option>
+                                    <option value="cooperation">Сотрудничество</option>
+                                    <option value="complaint">Жалоба</option>
+                                    <option value="suggestion">Предложение</option>
+                                    <option value="other">Другое</option>
+                                </select>
+                                <div id="category-hint" class="form-hint">Выберите наиболее подходящую категорию</div>
+                                <div id="category-error" class="form-error" role="alert" aria-live="polite"></div>
+                            </div>
+
+                            <div class="form__group">
+                                <label for="message" class="form__label">
+                                    Текст обращения <span class="required-indicator" aria-hidden="true">*</span>
+                                    <span class="sr-only">обязательное поле</span>
+                                </label>
+                                <textarea
+                                    id="message"
+                                    name="message"
+                                    class="form__textarea"
+                                    required
+                                    aria-required="true"
+                                    aria-describedby="message-hint message-length"
+                                    placeholder="Опишите вашу проблему или вопрос..."
+                                    maxlength="1000"
+                                ></textarea>
+                                <div id="message-hint" class="form-hint">Опишите подробно ваш вопрос или предложение</div>
+                                <div id="message-error" class="form-error" role="alert" aria-live="polite"></div>
+                            </div>
+                        </fieldset>
+
+                            <div class="form__actions">
+                                <button type="submit" class="button button--primary form__button" aria-describedby="submit-hint">Отправить</button>
+                            </div>
                     </form>
                 </section>
 
-                <div class="contact-info">
-                    <h2 class="contact-info__title">Контакты:</h2>
-                    <div class="contact-info__items">
-                        <p class="contact-item">📧 student@edu.ru</p>
-                        <p class="contact-item">📱 GitHub: sunesh1ne</p>
-                        <p class="contact-item">📍 Москва, Россия</p>
+                <sectioin class="section" aria-labelledby="contacts-title">
+                    <div class="contact-info">
+                        <h2 class="contact-info__title" aria-labelledby="contact-info-title">Контакты:</h2>
+                        <div class="contact-info__items">
+                            <p class="contact-item">📧 student@edu.ru</p>
+                            <p class="contact-item">📱 GitHub: sunesh1ne</p>
+                            <p class="contact-item">📍 Москва, Россия</p>
+                        </div>
                     </div>
-                </div>
+                </sectioin>
             </div>
         </main>
 

@@ -139,7 +139,7 @@ body {
 }
 
 .nav__item--active .nav__link {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(13, 16, 182, 0.521);
     font-weight: 600;
 }
 
@@ -710,6 +710,37 @@ body {
 .form__button {
     font-size: 1.1rem;
     padding: var(--space-md) var(--space-lg);
+}
+
+.form-fieldset {
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius);
+    padding: var(--space-md);
+    margin-bottom: var(--space-lg);
+}
+
+.form-legend {
+    font-weight: 600;
+    color: var(--text-color);
+    padding: 0 var(--space-sm);
+}
+
+.form-input--error {
+    border-color: #dc2626;
+    box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.1);
+}
+
+.form-error {
+    color: #dc2626;
+    font-size: 0.875rem;
+    margin-top: var(--space-xs);
+    font-weight: 500;
+}
+
+.form-hint {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin-top: var(--space-xs);
 }
 
 .contact-info {
